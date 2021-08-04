@@ -67,6 +67,7 @@ public class TableLoader {
     public static synchronized void FillDeltaDocaTable(File file) throws FileNotFoundException {
         Scanner input = new Scanner(file);
 
+        System.out.println("JOEY'S EDIT: START FILLING DELTADOCA TABLE");
         while(input.hasNext()) {
             String nextLine = input.nextLine();
             if (nextLine == null) break;
@@ -82,6 +83,7 @@ public class TableLoader {
                 +"; "+DELTADOCA[timeBin+1]+" for time bin "+(timeBin+1));
             }
         }
+        System.out.println("JOEY'S EDIT: END FILLING DELTADOCA TABLE");
 
         input.close();
     }
