@@ -113,7 +113,9 @@ public class DCHBEngine extends DCEngine {
            System.out.println("*********** DELTA DOCA FOUND FILE "+toFile);
            File file = new File(toFile);
             try {
+                System.out.println("Filling Delta Doca Table");
                 TableLoader.FillDeltaDocaTable(file);
+                System.out.println("Delta Doca Table Filled");
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(DCHBEngine.class.getName()).log(Level.SEVERE, null, ex);
             }
