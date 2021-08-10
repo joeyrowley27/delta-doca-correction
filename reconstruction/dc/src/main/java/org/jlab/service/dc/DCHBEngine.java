@@ -124,12 +124,6 @@ public class DCHBEngine extends DCEngine {
            TableLoader.FillT0Tables(newRun, super.variationName);
            System.out.println("Fill Statement:");
            TableLoader.Fill(super.getConstantsManager().getConstants(newRun, Constants.TIME2DIST));
-
-           //Second Time Filling Table
-           System.out.println("Second time filling delta doca table:");
-           String toFile2 = ClasUtilsFile.getResourceDir("CLAS12DIR", "etc/data/T2D_DeltaDoca.txt");
-           File file2 = new File(toFile2);
-           TableLoader.FillDeltaDocaTable(file2);
            
            Run.set(newRun);
            if (event.hasBank("MC::Particle") && this.getEngineConfigString("wireDistort")==null) {
