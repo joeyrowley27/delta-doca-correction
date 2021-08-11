@@ -250,7 +250,7 @@ public class TableLoader {
                             }
                             //Add delta doca: (commented out for debuggin purposes)
                             //if(tbin>600 && tbin<700) System.out.println("Adding delta doca to "+DISTFROMTIME[s][r][ibfield][icosalpha][tbin]);
-                            System.out.println("DISTFROMTIME"+DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+" DeltaDoca"+DELTADOCA[tbin]+" for tbin "+tbin);
+                            //System.out.println("DISTFROMTIME"+DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+" DeltaDoca"+DELTADOCA[tbin]+" for tbin "+tbin);
                             DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=DELTADOCA[tbin];
                             //if(tbin>600 && tbin<700) System.out.println("--> "+DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+" for tbin "+tbin);
 
