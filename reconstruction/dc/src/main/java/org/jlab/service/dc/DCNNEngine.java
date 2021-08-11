@@ -73,16 +73,6 @@ public class DCNNEngine extends DCEngine {
 
            if (cycles > 0) triggerPhase = period * ((timeStamp + phase) % cycles);
 
-           // JOEY's EDIT: Adding FillDeltaDocaTable
-           String toFile = ClasUtilsFile.getResourceDir("CLAS12DIR", "etc/data/T2D_DeltaDoca.txt");
-           System.out.println("*********** DELTA DOCA FOUND FILE "+toFile);
-           File file = new File(toFile);
-            try {
-                TableLoader.FillDeltaDocaTable(file);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(DCHBEngine.class.getName()).log(Level.SEVERE, null, ex);
-            }
-           // JOEY's EDIT ENDS
            TableLoader.FillT0Tables(newRun, super.variationName);
            TableLoader.Fill(super.getConstantsManager().getConstants(newRun, Constants.TIME2DIST));
 
