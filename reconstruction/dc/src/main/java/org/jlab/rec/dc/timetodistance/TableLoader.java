@@ -216,7 +216,8 @@ public class TableLoader {
                                         // bincount++;
                                         DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=stepSize;
                                     }
-                                    
+                                    //Delta Doca Correction moved here (from line 255)
+                                    DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=DELTADOCA[tbin];
                                     /* if(timebfield>timebfield_max) {
                                         DISTFROMTIME[s][r][ibfield][icosalpha][tbin]=x-stepSize*0.5;
                                         if(DISTFROMTIME[s][r][ibfield][icosalpha][tbin]>dmax)
@@ -251,7 +252,7 @@ public class TableLoader {
                             //Add delta doca: (commented out for debuggin purposes)
                             //if(tbin>600 && tbin<700) System.out.println("Adding delta doca to "+DISTFROMTIME[s][r][ibfield][icosalpha][tbin]);
                             //System.out.println("DISTFROMTIME"+DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+" DeltaDoca"+DELTADOCA[tbin]+" for tbin "+tbin);
-                            DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=DELTADOCA[tbin];
+                            //DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=DELTADOCA[tbin];
                             //if(tbin>600 && tbin<700) System.out.println("--> "+DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+" for tbin "+tbin);
 
                         }
