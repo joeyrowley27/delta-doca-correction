@@ -217,12 +217,17 @@ public class TableLoader {
                                         DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=stepSize;
                                     }
                                     //Delta Doca Correction moved here (from line 255)
-                                    DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=DELTADOCA[tbin];
+                                    //DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=DELTADOCA[tbin];
                                     /* if(timebfield>timebfield_max) {
                                         DISTFROMTIME[s][r][ibfield][icosalpha][tbin]=x-stepSize*0.5;
                                         if(DISTFROMTIME[s][r][ibfield][icosalpha][tbin]>dmax)
                                             DISTFROMTIME[s][r][ibfield][icosalpha][tbin] = dmax;                                               
                                     } */
+                                }
+                                
+                                //JOEY'S EDIT
+                                for(int tbin = 0; tbin<maxTBin; tbin++) {
+                                     DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=DELTADOCA[tbin];
                                 }
                             }
                         }
