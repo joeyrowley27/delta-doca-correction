@@ -113,18 +113,13 @@ public class DCHBEngine extends DCEngine {
            System.out.println("*********** DELTA DOCA FOUND FILE "+toFile);
            File file = new File(toFile);
             try {
-                System.out.println("Filling Delta Doca Table");
                 TableLoader.FillDeltaDocaTable(file);
-                System.out.println("Delta Doca Table Filled");
             } catch (FileNotFoundException ex) {
-                System.out.println("File Not Found Exception (catch system)");
                 Logger.getLogger(DCHBEngine.class.getName()).log(Level.SEVERE, null, ex);
             }
-           System.out.println("Filling T0 Table");
            TableLoader.FillT0Tables(newRun, super.variationName);
-           System.out.println("Fill Statement:");
            TableLoader.Fill(super.getConstantsManager().getConstants(newRun, Constants.TIME2DIST));
-           
+
            Run.set(newRun);
            if (event.hasBank("MC::Particle") && this.getEngineConfigString("wireDistort")==null) {
                Constants.setWIREDIST(0);
