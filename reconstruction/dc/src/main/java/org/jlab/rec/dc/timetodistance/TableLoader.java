@@ -67,7 +67,6 @@ public class TableLoader {
     public static synchronized void FillDeltaDocaTable(File file) throws FileNotFoundException {
         Scanner input = new Scanner(file);
 
-        System.out.println("JOEY'S EDIT: START FILLING DELTADOCA TABLE");
         while(input.hasNext()) {
             String nextLine = input.nextLine();
             if (nextLine == null) break;
@@ -83,7 +82,6 @@ public class TableLoader {
                 +"; "+DELTADOCA[timeBin+1]+" for time bin "+(timeBin+1));
             }
         }
-        System.out.println("JOEY'S EDIT: END FILLING DELTADOCA TABLE");
 
         input.close();
     }
@@ -216,18 +214,12 @@ public class TableLoader {
                                         // bincount++;
                                         DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=stepSize;
                                     }
-                                    //Delta Doca Correction moved here (from line 255)
-                                    //DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=DELTADOCA[tbin];
+                                    
                                     /* if(timebfield>timebfield_max) {
                                         DISTFROMTIME[s][r][ibfield][icosalpha][tbin]=x-stepSize*0.5;
                                         if(DISTFROMTIME[s][r][ibfield][icosalpha][tbin]>dmax)
                                             DISTFROMTIME[s][r][ibfield][icosalpha][tbin] = dmax;                                               
                                     } */
-                                }
-                                
-                                //JOEY'S EDIT
-                                for(int tbin = 0; tbin<maxTBin; tbin++) {
-                                     DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=DELTADOCA[tbin];
                                 }
                             }
                         }
@@ -254,11 +246,10 @@ public class TableLoader {
                             if(DISTFROMTIME[s][r][ibfield][icosalpha][tbin]!=0 && DISTFROMTIME[s][r][ibfield][icosalpha][tbin+1]==0) {
                                 DISTFROMTIME[s][r][ibfield][icosalpha][tbin+1] = DISTFROMTIME[s][r][ibfield][icosalpha][tbin];
                             }
-                            //Add delta doca: (commented out for debuggin purposes)
-                            //if(tbin>600 && tbin<700) System.out.println("Adding delta doca to "+DISTFROMTIME[s][r][ibfield][icosalpha][tbin]);
-                            //System.out.println("DISTFROMTIME"+DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+" DeltaDoca"+DELTADOCA[tbin]+" for tbin "+tbin);
+                            //Add delta doca:
+                            if(tbin>600 && tbin<700) System.out.println("Adding delta doca to "+DISTFROMTIME[s][r][ibfield][icosalpha][tbin]);
                             DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+=DELTADOCA[tbin];
-                            //if(tbin>600 && tbin<700) System.out.println("--> "+DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+" for tbin "+tbin);
+                            if(tbin>600 && tbin<700) System.out.println("--> "+DISTFROMTIME[s][r][ibfield][icosalpha][tbin]+" for tbin "+tbin);
 
                         }
                         
